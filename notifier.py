@@ -40,7 +40,7 @@ def loading(**kwargs):
     bd = mysql.connector.connect(
         host = 'localhost',
         user = 'root',
-        password = '16092005Dn!',
+        password = '12345',
         database = 'vendas_dataco'
     )
     cursor = bd.cursor()
