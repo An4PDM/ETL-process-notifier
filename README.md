@@ -11,12 +11,13 @@ O ETL Process Notifier é uma ferramenta desenvolvida para monitorar o andamento
 
 ## Tecnologias Usadas
 - **Python:** Linguagem principal utilizada para o desenvolvimento.
+- **Apache Airflow:** Usado para orquestrar os processos ETL.
 - **Slack API (opcional):** Para envio de notificações no Slack.
 - **Bibliotecas de monitoramento de logs:** Para observar e capturar eventos de falhas ou sucessos nos processos ETL.
 
 ## Pré-requisitos
 - Python 3.7 ou superior.
-- Acesso à API de notificações (exemplo: Slack, Email, etc.), caso deseje configurar notificações.
+- Acesso à API de notificações (exemplo: Slack, Email, etc.), caso deseje configurá-las.
 
 ## Instalação
 1. Clone este repositório
