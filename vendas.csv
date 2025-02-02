@@ -1,0 +1,10 @@
+id_venda,produto,quantidade,preco_unitario,data_venda
+1,Produto A,10,100.00,2025-01-01
+2,Produto B,5,150.00,2025-01-02
+3,Produto C,3,200.00,2025-01-03
+4,Produto A,8,100.00,2025-01-04
+5,Produto B,7,150.00,2025-01-05
+6,Produto C,4,200.00,2025-01-06
+7,Produto A,6,100.00,2025-01-07
+8,Produto B,10,150.00,2025-01-08
+9,Produto C,2,200.00,2025-01-09
