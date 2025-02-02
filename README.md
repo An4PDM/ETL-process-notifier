@@ -31,6 +31,7 @@ pip install -r requirements.txt
 ```
 
 3. Configuração
+
 O sistema de notificações pode ser configurado através de variáveis de ambiente ou diretamente no código, dependendo da sua escolha de canal de notificação. Veja os detalhes de configuração no arquivo config.py.
 
 Exemplo de configuração com Slack:
@@ -43,6 +44,7 @@ SLACK_CHANNEL = "#canal-de-notificacao"
 ```
 
 4. Execute o monitoramento
+   
 Com o código configurado, você pode iniciar o processo de monitoramento e notificação:
 
 ```bash
@@ -51,12 +53,10 @@ python notifier.py
 
 O script irá monitorar os logs do processo ETL e enviará notificações sempre que um evento relevante ocorrer (falha ou sucesso).
 
-Exemplos de Uso
-Envio de Notificação de Falha
-Quando o processo ETL falhar, o sistema enviará uma notificação de erro através do canal configurado (Slack, por exemplo).
+### Exemplos de Uso
+Envio de Notificação de Falha: Quando o processo ETL falhar, o sistema enviará uma notificação de erro através do canal configurado (Slack, por exemplo).
 
-Envio de Notificação de Sucesso
-Quando o processo ETL for concluído com sucesso, uma mensagem de sucesso será enviada para o canal configurado.
+Envio de Notificação de Sucesso: Quando o processo ETL for concluído com sucesso, uma mensagem de sucesso será enviada para o canal configurado.
 
 ## Contribuindo
 Contribuições são bem-vindas! Para contribuir, siga os passos abaixo:
