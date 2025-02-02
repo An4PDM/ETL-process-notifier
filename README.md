@@ -1,7 +1,7 @@
 # Notificador de processos ETL com Airflow
 
 ## Descrição
-O ETL Process Notifier é uma ferramenta desenvolvida para monitorar o andamento de processos ETL (Extract, Transform, Load) e enviar notificações sobre o status de cada etapa do processo. O objetivo é permitir que equipes de dados saibam imediatamente quando ocorrem falhas ou quando o processo de ETL for concluído com sucesso.
+O ETL Process Notifier é uma ferramenta desenvolvida para monitorar o andamento de processos ETL (Extract, Transform, Load) e enviar notificações sobre o andamento do processo. O objetivo é permitir que equipes de dados saibam imediatamente quando ocorrem falhas ou quando o processo de ETL for concluído com sucesso.
 
 ## Funcionalidades
 - Monitoramento de processos ETL.
@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 3. Configuração
 
-O sistema de notificações pode ser configurado através de variáveis de ambiente ou diretamente no código, dependendo da sua escolha de canal de notificação. Veja os detalhes de configuração no arquivo config.py.
+O sistema de notificações pode ser configurado através de variáveis de ambiente ou diretamente no código, dependendo da sua escolha de canal de notificação. 
 
 Exemplo de configuração com Slack:
 
