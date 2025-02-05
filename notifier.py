@@ -5,6 +5,7 @@ from airflow.operators.email import EmailOperator
 from datetime import datetime
 import pandas as pd
 import mysql.connector
+from config import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
 
 def extracting(**kwargs):
     try:
@@ -47,10 +48,10 @@ def loading(**kwargs):
         df = pd.DataFrame(data)
 
         bd = mysql.connector.connect(
-            host = 'localhost',
-            user = 'root',
-            password = '12345',
-            database = 'vendas_dataco'
+            host = DB_HOST,
+            user = DB_USER,
+            password = DB_PASSWORD,
+            database = DB_NAME
         )
         cursor = bd.cursor()
         
