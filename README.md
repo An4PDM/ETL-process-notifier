@@ -51,9 +51,9 @@ python notifier.py
 
 O script irá monitorar os logs do processo ETL e enviará notificações sempre que um evento relevante ocorrer (falha ou sucesso).
 
-![General Graph](notif_graph.png)
+![General Graph](img/notif_graph.png)
 
-![Tree Graph](tree_notif.png)
+![Tree Graph](img/tree_notif.png)
 
 ### Exemplos de Uso
 Envio de Notificação de Falha: Quando o processo ETL falhar, o sistema enviará uma notificação de erro através do canal configurado e ao e-mail.
@@ -61,7 +61,7 @@ Envio de Notificação de Falha: Quando o processo ETL falhar, o sistema enviar�
 
 Envio de Notificação de Sucesso: Quando o processo ETL for concluído com sucesso, uma mensagem de sucesso será enviada para o canal configurado e ao e-mail de destino.
 
-![Slack Message](slack_msg.png)
+![Slack Message](img/slack_msg.png)
 
 ## Contribuindo
 
