@@ -1,7 +1,7 @@
 # Notificador de processos ETL com Airflow
 
 ## Descrição
-O ETL Process Notifier é uma ferramenta desenvolvida para monitorar o andamento de processos ETL (Extract, Transform, Load) e enviar notificações sobre o andamento do processo. O objetivo é permitir que equipes de dados saibam imediatamente quando ocorrem falhas ou quando o processo de ETL for concluído com sucesso.
+Este projeto tem como objetivo realizar um processo ETL (Extract, Transform, Load) utilizando o Apache Airflow. O fluxo consiste em extrair dados de um arquivo CSV, realizar transformações nos dados e, em seguida, carregar as informações em um banco de dados MySQL. Além disso, o sistema envia notificações para o Slack e E-mail informando se houve sucesso ou falha no processo.
 
 ## Funcionalidades
 - Monitoramento de processos ETL.
@@ -12,12 +12,14 @@ O ETL Process Notifier é uma ferramenta desenvolvida para monitorar o andamento
 ## Tecnologias Usadas
 - **Python:** Linguagem principal utilizada para o desenvolvimento.
 - **Apache Airflow:** Usado para orquestrar os processos ETL.
-- **Slack API (opcional):** Para envio de notificações no Slack.
-- **Bibliotecas de monitoramento de logs:** Para observar e capturar eventos de falhas ou sucessos nos processos ETL.
+- **Slack API:** Envio de notificações para o canal de Slack.
+- **MySQL:** Banco de dados para armazenar os dados transformados.
 
 ## Pré-requisitos
 - Python 3.7 ou superior.
 - Acesso à API de notificações (exemplo: Slack, Email, etc.), caso deseje configurá-las.
+- Apache Airflow: O Airflow deve estar instalado e funcionando. Se ainda não o fez, você pode seguir a documentação oficial do Airflow para instalar.
+- MySQL Database: Certifique-se de ter um banco de dados MySQL configurado. Altere as credenciais do banco de dados no arquivo config.py.
 
 ## Instalação
 1. Clone este repositório
@@ -33,16 +35,11 @@ pip install -r requirements.txt
 
 3. Configuração
 
-O sistema de notificações pode ser configurado através de variáveis de ambiente ou diretamente no código, dependendo da sua escolha de canal de notificação. 
+Configure as variáveis de ambiente no arquivo config.py:
 
-Exemplo de configuração com Slack:
-
-```python
-# config.py
-
-SLACK_TOKEN = "seu_token_do_slack"
-SLACK_CHANNEL = "#canal-de-notificacao"
-```
+- DB_HOST, DB_NAME, DB_USER, DB_PASSWORD: Credenciais do banco de dados MySQL.
+- SLACK_TOKEN: Token de autenticação do Slack.
+- SLACK_CHANNEL: ID do canal no Slack onde as mensagens serão enviadas. 
 
 4. Execute o monitoramento
    
@@ -57,16 +54,14 @@ O script irá monitorar os logs do processo ETL e enviará notificações sempre
 ### Exemplos de Uso
 Envio de Notificação de Falha: Quando o processo ETL falhar, o sistema enviará uma notificação de erro através do canal configurado (Slack, por exemplo).
 
+
 Envio de Notificação de Sucesso: Quando o processo ETL for concluído com sucesso, uma mensagem de sucesso será enviada para o canal configurado.
 
-## Contribuindo
-Contribuições são bem-vindas! Para contribuir, siga os passos abaixo:
+![Texto Alternativo](URL_da_Imagem)
 
-- Fork o repositório.
-- Crie uma nova branch (git checkout -b feature/feature-name).
-- Faça suas alterações e commit (git commit -am 'Adicionando nova feature').
-- Envie para a branch principal (git push origin feature/feature-name).
-- Abra um Pull Request.
+## Contribuindo
+
+Se você quiser contribuir para este projeto, sinta-se à vontade para fazer um fork, enviar um pull request ou abrir uma issue. Ficarei feliz em melhorar o código com a ajuda de vocês!
 
 ## Licença
 Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
