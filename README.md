@@ -37,9 +37,9 @@ pip install -r requirements.txt
 
 Configure as variáveis de ambiente no arquivo config.py:
 
-- DB_HOST, DB_NAME, DB_USER, DB_PASSWORD: Credenciais do banco de dados MySQL.
-- SLACK_TOKEN: Token de autenticação do Slack.
-- SLACK_CHANNEL: ID do canal no Slack onde as mensagens serão enviadas. 
+- **DB_HOST, DB_NAME, DB_USER, DB_PASSWORD:** Credenciais do banco de dados MySQL.
+- **SLACK_TOKEN:** Token de autenticação do Slack.
+- **SLACK_CHANNEL:** ID do canal no Slack onde as mensagens serão enviadas. 
 
 4. Execute o monitoramento
    
@@ -51,13 +51,17 @@ python notifier.py
 
 O script irá monitorar os logs do processo ETL e enviará notificações sempre que um evento relevante ocorrer (falha ou sucesso).
 
+![General Graph](notif_graph.png)
+
+![Tree Graph](tree_notif.png)
+
 ### Exemplos de Uso
-Envio de Notificação de Falha: Quando o processo ETL falhar, o sistema enviará uma notificação de erro através do canal configurado (Slack, por exemplo).
+Envio de Notificação de Falha: Quando o processo ETL falhar, o sistema enviará uma notificação de erro através do canal configurado e ao e-mail.
 
 
-Envio de Notificação de Sucesso: Quando o processo ETL for concluído com sucesso, uma mensagem de sucesso será enviada para o canal configurado.
+Envio de Notificação de Sucesso: Quando o processo ETL for concluído com sucesso, uma mensagem de sucesso será enviada para o canal configurado e ao e-mail de destino.
 
-![Texto Alternativo](URL_da_Imagem)
+![Slack Message](slack_msg.png)
 
 ## Contribuindo
 
