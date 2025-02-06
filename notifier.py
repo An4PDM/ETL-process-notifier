@@ -5,7 +5,7 @@ from airflow.operators.email import EmailOperator
 from datetime import datetime
 import pandas as pd
 import mysql.connector
-from config import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+from config import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER, SLACK_TOKEN, SLACK_CHANNEL, EMAIL
 
 def extracting(**kwargs):
     try:
@@ -70,6 +70,25 @@ def loading(**kwargs):
 
     except Exception as e:
         raise ValueError(f'Error on loading data: {e}')
+        
+def slack_connection(token,channel,message):
+    client = WebClient(token=token)
+
+    try:
+        response = client.chat_postMessage(
+            channel=channel,
+            text=message
+        )
+    except SlackApiError as e:
+        print(f"Error in connection with Slack: {e.response['error']}")
+
+def success_notif(context):
+    message = 'The ETL process was completed successfully.'
+    slack_connection(SLACK_TOKEN,SLACK_CHANNEL,message)
+
+def fail_notif(context):
+    message = 'The ETL process failed. Check the LOGs for more information.'
+    slack_connection(SLACK_TOKEN,SLACK_CHANNEL,message)
 
 with DAG (
     dag_id='Notifier',
@@ -83,16 +102,15 @@ with DAG (
     transform = PythonOperator(task_id='Transform',python_callable=transforming)
     load = PythonOperator(task_id='Load',python_callable=loading)
     success = EmailOperator(task_id='Success', 
-                            to='anadesantosdemelo@gmail.com',
+                            to=EMAIL,
                             subject='Successful ETL process',
-                            html_content='<p> The ETL process was completed successfully. </p>',
+                            html_content='The ETL process was completed successfully.',
                             trigger_rule='all_success')
-
-    fail = EmailOperator(task_id='Fail',
-                         to='anadesantosdemelo@gmail.com',
-                         subject='Failed ETL process',
-                         html_content='<p> The ETL process failed. Check the logs for more details.</p>',
-                         trigger_rule='one_failed')
+    fail = EmailOperator(task_id='Fail', 
+                            to=EMAIL,
+                            subject='Failed ETL process',
+                            html_content='The ETL process failed. Check the LOGs for more information.',
+                            trigger_rule='one_failed')
     end = DummyOperator(task_id='End')
 
 start >> extract >> transform >> load >> [success, fail] >> end
