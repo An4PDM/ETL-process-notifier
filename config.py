@@ -7,3 +7,6 @@ DB_NAME = 'vendas_dataco'
 # Slack configuration
 SLACK_TOKEN = "slack_token"
 SLACK_CHANNEL = "#your_notification_channel"
+
+#e-mail/recipient
+EMAIL = 'email_example@gmail.com'
